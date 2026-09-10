@@ -1,41 +1,33 @@
-//What is callback function in javascript?
+const radius = [2, 4, 6, 8];
 
-// setTimeout(function(){
-//     console.log("Timer");
-// }, 5000);   
+//Find Area of Circle
 
-
-// function x(y){
-//     console.log("x called");
-//     y();
-// }
-
-// x(function y(){
-//     console.log("y called");
-// })
-
-// function attachEventListener(){
-//     var count = 0;
-//     document.getElementById("clickMe").addEventListener("click", function xyz(){
-//         console.log("Button Clicked!", count++)
-//     })
-// }
-// attachEventListener();
-
-//We can not trust setTimeout that It will execute code after specified amount of time
-console.log("start");
-setTimeout(function cb(){
-    console.log("Timer")
-}, 5000);
-console.log("End");
-
-
-//This loop will run for 10 sec
-//It will block main thread for 10 second
-let startDate = new Date().getTime();
-let endDate = startDate;
-while(endDate < startDate + 10000){
-    endDate = new Date().getTime();
+function calculateArea(radius){
+    const output = [];
+    for(let i = 0; i < radius.length; i++){
+        output.push(Math.PI * radius[i] * radius[i]);
+    }
+    return output;
 }
 
-console.log("While Expires");
+console.log(calculateArea(radius));
+
+function calculateCircumference(radius){
+    const output = [];
+    for(let i = 0; i < radius.length; i++){
+        output.push(2 * Math.PI * radius[i]);
+    }
+    return output;
+}
+
+console.log(calculateCircumference(radius));
+
+function calculateDiameter(radius){
+    const output = [];
+    for(let i = 0; i < radius.length; i++){
+        output.push(radius[i] * 2);
+    }
+    return output;
+}
+
+console.log(calculateDiameter(radius));
