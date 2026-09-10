@@ -1,33 +1,28 @@
 const radius = [2, 4, 6, 8];
 
 //Find Area of Circle
+function area(radius){
+    return Math.PI * radius * radius;
+}
 
-function calculateArea(radius){
+function circumference(radius){
+    return 2 * Math.PI * radius;
+}
+
+function diameter(radius){
+    return 2 * radius;
+}
+
+function calculate(radius, logic){
     const output = [];
     for(let i = 0; i < radius.length; i++){
-        output.push(Math.PI * radius[i] * radius[i]);
+        output.push(logic(radius[i]));
     }
     return output;
 }
 
-console.log(calculateArea(radius));
+console.log(calculate(radius, area));
+console.log(calculate(radius, circumference));
+console.log(calculate(radius, diameter));
 
-function calculateCircumference(radius){
-    const output = [];
-    for(let i = 0; i < radius.length; i++){
-        output.push(2 * Math.PI * radius[i]);
-    }
-    return output;
-}
 
-console.log(calculateCircumference(radius));
-
-function calculateDiameter(radius){
-    const output = [];
-    for(let i = 0; i < radius.length; i++){
-        output.push(radius[i] * 2);
-    }
-    return output;
-}
-
-console.log(calculateDiameter(radius));
