@@ -24,3 +24,13 @@ const sumWithReduce = numbers.reduce((acc, curr) => {
 }, 0);
 
 console.log(sumWithReduce);
+
+//using reduce function to find the maximum value in an array
+const findMax = numbers.reduce((acc, curr) => {
+    if(curr > acc){
+        acc = curr;
+    }
+    return acc;
+}, 0);
+
+console.log(findMax);
