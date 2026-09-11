@@ -1,36 +1,23 @@
-//reduce function
-//reduce function is used to reduce an array to a single value by applying a function 
-// to each element of the array. It takes two arguments: a callback function and an initial value. 
-// The callback function takes four arguments: accumulator, currentValue, currentIndex, and array. 
-// The accumulator is the accumulated value returned from the previous iteration, currentValue is the current element being processed, 
-// currentIndex is the index of the current element, and array is the original array being reduced.
+const data = [
+    { firstname : "John", lastname: "Doe", age: 30 },
+    { firstname : "Jane", lastname: "Smith", age: 25 },
+    { firstname : "Bob", lastname: "Johnson", age: 30 },
+    { firstname : "Alice", lastname: "Williams", age: 28 }
+]
+//get full names of all people in the data array
+function getFullNames(data){
+    return data.map((person) => person.firstname + " " + person.lastname)
+}   
+console.log(getFullNames(data));
 
-const numbers = [1, 2, 3, 4, 5];
+// { 30 : 1, 25: 1, 28 : 1 }
+const countByAge = data.reduce((acc, curr) => {
+   if(acc[curr.age]){
+    acc[curr.age] =  ++acc[curr.age]
+   }else{
+    acc[curr.age] = 1;
+   }
+   return acc;
+}, {});
 
-function sum(arr){
-    let total = 0;
-    for(let i = 0; i < arr.length; i++){
-        total = total + arr[i];
-    }
-    return total;
-}
-
-console.log(sum(numbers)); 
-
-//using reduce function
-const sumWithReduce = numbers.reduce((acc, curr) => {
-    acc = acc + curr;
-    return acc;
-}, 0);
-
-console.log(sumWithReduce);
-
-//using reduce function to find the maximum value in an array
-const findMax = numbers.reduce((acc, curr) => {
-    if(curr > acc){
-        acc = curr;
-    }
-    return acc;
-}, 0);
-
-console.log(findMax);
+console.log(countByAge);
