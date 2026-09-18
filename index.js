@@ -1,4 +1,4 @@
-//Promise.all - It is safest option amongst all
+//Promise.allSettled - It is safest option amongst all
 //It returns result when all the promises are setteled
 
 const p1 = new Promise((resolve, reject) => {
