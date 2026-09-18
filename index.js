@@ -1,16 +1,17 @@
-//Promise.race - It is like jo jita wahi sikandar
-//It return the return of first settled promise
-//whichever promise settled first - weather it is rejected or resolved
+//Promise.any - It is success seeking api
+//It will wait for any of promise to get success and it will return its result
+//If all the promised failed then it will throw an AggregateError: All promises were rejected
+
 
 const p1 = new Promise((resolve, reject) => {
-    setTimeout(() => resolve("P1 resolve"), 3000);
-    // setTimeout(() => reject("P1 reject"), 1000);
+    // setTimeout(() => resolve("P1 resolve"), 3000);
+    setTimeout(() => reject("P1 reject"), 1000);
 
 })
 
 const p2 = new Promise((resolve, reject) => {
-    setTimeout(() => resolve("P2 resolve"), 1000);
-    // setTimeout(() => reject("P2 reject"), 1000);
+    // setTimeout(() => resolve("P2 resolve"), 5000);
+    setTimeout(() => reject("P2 reject"), 1000);
 })
 
 const p3 = new Promise((resolve, reject) => {
@@ -19,7 +20,7 @@ const p3 = new Promise((resolve, reject) => {
 
 })
 
-Promise.race([p1, p2, p3]).then((res) => {
+Promise.any([p1, p2, p3]).then((res) => {
     console.log(res);
 }).catch((err)=>{
     console.error(err);
