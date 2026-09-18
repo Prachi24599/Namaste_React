@@ -1,29 +1,28 @@
-//Promise.any - It is success seeking api
-//It will wait for any of promise to get success and it will return its result
-//If all the promised failed then it will throw an AggregateError: All promises were rejected
+//wwhat is async - async is a keyword that is used before the function to create a async function
+//We can return promise from it, If we return a value, It will wrap it inside the promise and then return
 
-
-const p1 = new Promise((resolve, reject) => {
-    // setTimeout(() => resolve("P1 resolve"), 3000);
-    setTimeout(() => reject("P1 reject"), 1000);
-
+const p = new Promise((resolve, reject) => {
+    resolve("The Promise is resolved!");
 })
+async function getData() {
+    // return "Namaste"
+    return p
+}
 
-const p2 = new Promise((resolve, reject) => {
-    // setTimeout(() => resolve("P2 resolve"), 5000);
-    setTimeout(() => reject("P2 reject"), 1000);
-})
+const dataPromise = getData();
+console.log(dataPromise);
+// [[Prototype]]
+// : 
+// Promise
+// [[PromiseState]]
+// : 
+// "fulfilled"
+// [[PromiseResult]]
+// : 
+// "Namaste"
 
-const p3 = new Promise((resolve, reject) => {
-    // setTimeout(() => resolve("P2 resolve"), 2000);
-    setTimeout(() => reject("P3 reject"), 2000);
+//How to get the actual result from dataPromise i.e. return promise
+//It is the same way we handled promises
 
-})
-
-Promise.any([p1, p2, p3]).then((res) => {
-    console.log(res);
-}).catch((err)=>{
-    console.error(err);
-    //This is how we can see all the aggregate errors
-    console.log(err.errors);
-})
+dataPromise.then((res) => console.log(res));
+//Namaste
