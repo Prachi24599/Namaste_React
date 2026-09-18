@@ -1,37 +1,19 @@
-const cart = ["A", "B", "C"];
-
-createOrder(cart).then((orderId) => {
-        console.log(orderId);
-        return;
-    }).then((orderId)=>{
-        return proceedToPayment(orderId);
-    }).then((paymentinfo)=>{
-        console.log(paymentinfo)
-    }).catch((err) => {
-        console.log("I have found an error", err)
+//Promise.all
+const p1 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("P1 resolve"), 3000);
 })
 
-//creating our own promise
-function createOrder(cart){
-    const pr = new Promise((resolve, reject) => {
-        if(!validateCart(cart)){
-            const err = new Error("Cart is empty");
-            reject(err);
-        }
-        const orderId = "12345";
-        if(orderId){
-            resolve(orderId)
-        }
-    })
-    return pr;
-}
+const p2 = new Promise((resolve, reject) => {
+    // setTimeout(() => resolve("P2 resolve"), 1000);
+    setTimeout(() => reject("P2 reject"), 1000);
+})
 
-function validateCart(cart){
-    return true;
-}
+const p3 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("P2 resolve"), 2000);
+})
 
-function proceedToPayment(){
-    return new Promise((resolve, reject)=>{
-        resolve("The payment is successful!")
-    })
-}
+Promise.all([p1, p2, p3]).then((res) => {
+    console.log(res);
+}).catch((err)=>{
+    console.error(err);
+})
