@@ -1,11 +1,14 @@
 const cart = ["A", "B", "C"];
 
-const promise = createOrder(cart);
-console.log(promise);
-promise.then((data) => {
-    console.log(data)
-}).catch((err) => {
-    console.log("I have found an error", err)
+createOrder(cart).then((orderId) => {
+        console.log(orderId);
+        return;
+    }).then((orderId)=>{
+        return proceedToPayment(orderId);
+    }).then((paymentinfo)=>{
+        console.log(paymentinfo)
+    }).catch((err) => {
+        console.log("I have found an error", err)
 })
 
 //creating our own promise
@@ -24,5 +27,11 @@ function createOrder(cart){
 }
 
 function validateCart(cart){
-    return false;
+    return true;
+}
+
+function proceedToPayment(){
+    return new Promise((resolve, reject)=>{
+        resolve("The payment is successful!")
+    })
 }
