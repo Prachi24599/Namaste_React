@@ -24,4 +24,6 @@ Promise.any([p1, p2, p3]).then((res) => {
     console.log(res);
 }).catch((err)=>{
     console.error(err);
+    //This is how we can see all the aggregate errors
+    console.log(err.errors);
 })
