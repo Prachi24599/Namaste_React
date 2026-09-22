@@ -32,3 +32,31 @@ function serve(chai : kulhadChai | Cutting){
         return chai.serve(); // As we have added the if condition, we know the chat is going to be method of kulhadChai class
     }
 }
+
+type ChaiOrder = {
+    type : string
+    suger : number
+}
+
+function isChaiOrder(obj : any) : obj is ChaiOrder{
+    return (
+        typeof obj === "object" &&
+        obj !== null &&
+        typeof obj.type === "string" &&
+        typeof obj.suger === "number"
+    )
+}
+
+function serveOrder(item : ChaiOrder | string ){
+    if(isChaiOrder(item)){
+        return `Serving ${item.type} chat with ${item.suger} suger`;
+    }
+    return `serving custom chai ${item}`;
+}
+
+const myObj  = {
+    type : "masala tea",
+    suger : 2
+}
+console.log(serveOrder("prachi"));
+console.log(serveOrder(myObj));
