@@ -29,3 +29,6 @@ function neverReturn() : never{
 
     }
 }
+
+// neverReturn()
+// console.log("Hi") - It will never react to this line
