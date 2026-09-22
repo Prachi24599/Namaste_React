@@ -60,3 +60,38 @@ const myObj  = {
 }
 console.log(serveOrder("prachi"));
 console.log(serveOrder(myObj));
+
+type MasalaTea = {
+    type : "masala";
+    spicelevel : number
+}
+
+type GingerTea = {
+    type : "ginder";
+    spicelevel : number
+}
+
+type ElaichiTea = {
+    type : "elaichi";
+    spicelevel : number
+}
+
+type Chai = MasalaTea | GingerTea | ElaichiTea;
+
+function MakeChai(order : Chai){
+    switch (order.type) {
+        case "masala":
+            console.log("masala tea")
+            break;
+        case "ginder":
+            console.log("ginger tea");
+            break;
+        case "elaichi":
+            console.log("elaichi tea");
+            break;
+        default:
+            break;
+    }
+}
+
+MakeChai({ type: "elaichi", spicelevel: 2 });
