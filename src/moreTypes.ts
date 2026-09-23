@@ -32,3 +32,47 @@ function neverReturn() : never{
 
 // neverReturn()
 // console.log("Hi") - It will never react to this line
+
+//interface
+
+interface chai {
+    suger : number,
+    milk : string
+}
+
+const makeTee : chai = {suger : 1, milk : "fat ml"};
+console.log(makeTee)
+
+class MyTeaSeection implements chai{
+    suger =  5;
+    milk = "10";
+}
+
+type BaseChai = {teaLeaves : number};
+type Extra = {masala : number};
+
+type MasalaTeaSpecial = BaseChai & Extra;
+
+const u1 : MasalaTeaSpecial = {teaLeaves : 5, masala : 5}
+
+
+//optional values
+
+type User = {
+    name : string,
+    bio ?: string //optional
+}
+const p1 : User = {name : "Prachi"}
+const p2 : User = {name : "Pinku", bio : "Married"}
+
+//readonly value
+type Config = {
+    readonly theme : string,
+    version : number
+}
+
+//ones you assign a readonly value then you can not change it
+const prachiCfg : Config = {
+    theme : "Black",
+    version : 1
+}
