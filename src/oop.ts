@@ -24,3 +24,16 @@ class Chai {
 const c = new Chai();
 console.log(c)
 console.log(c.accessPrivate()) //we can access private variable but using a method
+
+class Monkey {
+    protected feature : string = "Jump"
+}
+
+//Protected - Child class can access the protected properties on parent class
+class Human extends Monkey{
+    getFeature(){
+        return this.feature
+    }
+}
+const h = new Human();
+console.log(h.getFeature()) 
