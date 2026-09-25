@@ -53,3 +53,11 @@ function makechai1 (type : ChaiType){
     console.log(`Making ${type}`)
 }
 makechai1(ChaiType.GINGER)
+
+//If we dong specify furthur values, then It automatically assigns the next value
+enum status {
+    PENDING = 100,
+    SERVERD, //101
+    COMPLETED //102
+}
+console.log(status.COMPLETED)
