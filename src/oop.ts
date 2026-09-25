@@ -37,3 +37,13 @@ class Human extends Monkey{
 }
 const h = new Human();
 console.log(h.getFeature()) 
+
+//readonly
+class Cup {
+    readonly capacity : number = 10;
+    constructor(capacity : number){
+        this.capacity =     capacity;
+    }
+}
+const myCup = new Cup(50);
+console.log(myCup)
