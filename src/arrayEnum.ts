@@ -42,3 +42,14 @@ userInfo = ["prachi", 26, true]
 let location : readonly [number, number] = [28.66, 32.22]
 // location = [6, 7]
 console.log(location);  
+
+//ENUM - Defined by capital letters
+enum ChaiType {
+    "MASALA" = "masala",
+    "GINGER" = "ginger"
+}
+
+function makechai1 (type : ChaiType){
+    console.log(`Making ${type}`)
+}
+makechai1(ChaiType.GINGER)
