@@ -24,3 +24,21 @@ const table : number[][] = [
     [1, 3, 5],
     [2, 4, 6]
 ]
+
+//Tuples
+// A tuple is an array where TypeScript knows:
+// how many elements there are
+// the type of each position
+let chaiTuple : [string, number];
+chaiTuple = ["masala", 20];
+// chaiTuple = [20, "masala"] we can not change the order of defined tuples
+
+//tuple with an optinal parameter
+let userInfo : [string, number, boolean?];
+userInfo = ["hitesh", 100];
+userInfo = ["prachi", 26, true]
+
+//readonly tuple
+let location : readonly [number, number] = [28.66, 32.22]
+// location = [6, 7]
+console.log(location);  
