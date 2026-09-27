@@ -42,7 +42,7 @@ console.log(h.getFeature())
 class Cup {
     readonly capacity : number = 10;
     constructor(capacity : number){
-        this.capacity =     capacity;
+        this.capacity = capacity;
     }
 }
 const myCup = new Cup(50);
