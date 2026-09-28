@@ -68,3 +68,9 @@ const u : User = {
     age : 67,
     name : "pp"
 }
+
+
+//Interface extends
+interface A {a : string}
+interface B {b : string}
+interface C extends A,B{}
