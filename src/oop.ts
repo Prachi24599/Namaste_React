@@ -68,5 +68,31 @@ md1.suger = 3;
 
 console.log(md1)
 console.log(md1.suger) //getter
-md1.suger = 6; //setter
-console.log(md1.suger);
+// md1.suger = 6; //setter
+// console.log(md1.suger); throws an error
+
+//abstract class
+abstract class Drink{
+    abstract make() : void;
+}
+
+class MyTeaChai extends Drink{
+    make(){
+        console.log("In MyTeaChai");
+    }
+}
+
+//syntax for private variable
+class Walet{
+    #balance = 100; //private variable
+
+    getBalance(){
+        return this.#balance;
+    }
+}
+
+const w = new Walet();
+console.log(w.getBalance());
+
+
+
