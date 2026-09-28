@@ -47,3 +47,26 @@ class Cup {
 }
 const myCup = new Cup(50);
 console.log(myCup)
+
+class ModernChai {
+    private _suger = 2;
+
+    //getter
+    get suger(){
+        return this._suger;
+    }
+    //setter
+    set suger(value : number){
+        if(value > 5) throw new Error("Too sweet");
+        else this._suger = value
+
+    }
+}
+//In TypeScript, you access a getter and setter like a normal property — you don't call them like functions.
+const md1 = new ModernChai();
+md1.suger = 3;
+
+console.log(md1)
+console.log(md1.suger) //getter
+md1.suger = 6; //setter
+console.log(md1.suger);
