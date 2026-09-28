@@ -41,3 +41,13 @@ const machine : TeaMachine = {
     }
 }
 console.log(machine);
+
+//Index Signature
+interface ChaiRatings {
+    [flavor : string] : number
+}
+
+const ratings : ChaiRatings = {
+    masala: 4,
+    ginger: 4.5
+}
