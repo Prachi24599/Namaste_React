@@ -51,3 +51,20 @@ const ratings : ChaiRatings = {
     masala: 4,
     ginger: 4.5
 }
+
+//Interface from outside library
+interface User {
+    name : string
+}
+
+//Interface we have defined
+interface User {
+    age : number
+}
+
+//If we use that interface then we need to define properties of both the interfaces
+//Merging
+const u : User = {
+    age : 67,
+    name : "pp"
+}
